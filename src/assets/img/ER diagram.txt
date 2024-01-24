@@ -1,0 +1,43 @@
+
+Entities:
+
+Supplier
+Attributes: SupplierID (Primary Key), Name, Contact Info, Raw Material Supplied, etc.
+
+Admin
+Attributes: AdminID (Primary Key), Name, Contact Info, Responsibilities, etc.
+
+Company
+Attributes: CompanyID (Primary Key), Name, Location, Products Processed, etc.
+
+Warehouse
+Attributes: WarehouseID (Primary Key), Location, Storage Capacity, Products Stored, etc.
+
+Distributor
+Attributes: DistributorID (Primary Key), Name, Contact Info, Distribution Region, etc.
+
+Product
+Attributes: ProductID (Primary Key), Name, Description, Price, etc.
+
+Order
+Attributes: OrderID (Primary Key), Customer Details, Order Date, Status, etc.
+
+Relationships:
+
+Supplier supplies Raw Material to Company-
+Many-to-One Relationship: A company can have multiple suppliers, but each supplier supplies to one company.
+
+Admin manages Company-
+One-to-One Relationship: Each company is managed by one admin, and each admin manages one company.
+
+Company processes Raw Material to create Product-
+One-to-Many Relationship: A company can process multiple raw materials to create various products.
+
+Warehouse stores Products from Company-
+Many-to-One Relationship: Multiple products from a company can be stored in one warehouse.
+
+Distributor distributes Products based on Orders-
+One-to-Many Relationship: A distributor can fulfill multiple orders, and each order is handled by one distributor.
+
+Order contains Products-
+Many-to-Many Relationship: An order can contain multiple products, and a product can be a part of multiple orders.

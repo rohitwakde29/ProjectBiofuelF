@@ -1,0 +1,249 @@
+Microsoft Windows [Version 10.0.19045.3324]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\hp>mysql -u root -p
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 168
+Server version: 8.0.34 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++------------------------+
+| Database               |
++------------------------+
+| ak                     |
+| demo                   |
+| image                  |
+| information_schema     |
+| j30group               |
+| jpabasic               |
+| jpacascade             |
+| jpaimage               |
+| jpajoinedinheritance   |
+| jpalifecycle           |
+| jpamanytomany          |
+| jpamanytomany1         |
+| jpaonetomany           |
+| jpaonetoone            |
+| jpaperclassinheritance |
+| jpaprclassinheritance  |
+| jpasingleinheritance   |
+| jpql                   |
+| mantoman               |
+| mysql                  |
+| onetoone               |
+| performance_schema     |
+| practice               |
+| projectadmin           |
+| projectbiofuel         |
+| projectsupplychain     |
+| springcustomerorder    |
+| springj30employee      |
+| springplayermanagement |
+| sys                    |
++------------------------+
+30 rows in set (0.39 sec)
+
+mysql> use projectbiofuel;
+Database changed
+mysql> show tables;
++--------------------------+
+| Tables_in_projectbiofuel |
++--------------------------+
+| company                  |
+| hibernate_sequence       |
+| orders                   |
+| orders_products          |
+| product                  |
+| product_products         |
++--------------------------+
+6 rows in set (0.04 sec)
+
+mysql> drop table company;
+Query OK, 0 rows affected (0.13 sec)
+
+mysql> drop table  orders;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> drop table   orders_products;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> drop table  product;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> drop table   product_products;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> show tables;
++--------------------------+
+| Tables_in_projectbiofuel |
++--------------------------+
+| company                  |
+| company_products         |
+| hibernate_sequence       |
+| orders                   |
+| product                  |
++--------------------------+
+5 rows in set (0.01 sec)
+
+mysql> select *from company;
++------------+---------+----------------------------+
+| company_id | address | name                       |
++------------+---------+----------------------------+
+|          1 | Pune    | jeevendhan biofuel Pvt.Ltd |
++------------+---------+----------------------------+
+1 row in set (0.01 sec)
+
+mysql> select *from product;
++------------+-------------+-------+
+| product_id | description | price |
++------------+-------------+-------+
+|        101 | Biodiesel   |  1000 |
+|        102 | Bioethanol  |  2000 |
++------------+-------------+-------+
+2 rows in set (0.01 sec)
+
+mysql> select *from  company_products;
++--------------------+---------------------+
+| company_company_id | products_product_id |
++--------------------+---------------------+
+|                  1 |                 101 |
+|                  1 |                 102 |
++--------------------+---------------------+
+2 rows in set (0.01 sec)
+
+mysql> select *from company;
++------------+-----------+----------------------------+
+| company_id | address   | name                       |
++------------+-----------+----------------------------+
+|          1 | Hyderabad | jeevendhan biofuel Pvt.Ltd |
++------------+-----------+----------------------------+
+1 row in set (0.02 sec)
+
+mysql> select *from company;
++------------+-----------+----------------------------+
+| company_id | address   | name                       |
++------------+-----------+----------------------------+
+|          1 | Hyderabad | jeevendhan biofuel Pvt.Ltd |
++------------+-----------+----------------------------+
+1 row in set (0.00 sec)
+
+mysql> select *from product;
++------------+-------------+-------+
+| product_id | description | price |
++------------+-------------+-------+
+|        101 | Biodiesel   |   500 |
+|        104 | Bioethanol  |  2000 |
++------------+-------------+-------+
+2 rows in set (0.01 sec)
+
+mysql> select *from product;
++------------+-------------+-------+
+| product_id | description | price |
++------------+-------------+-------+
+|        101 | Biodiesel   |   500 |
+|        104 | Bioethanol  |  2000 |
+|        105 | Edinle oils |  2000 |
+|        106 | Glycerin    |  1000 |
+|         10 | Biodiesel   |   500 |
++------------+-------------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select *from company;
++------------+-----------+----------------------------+
+| company_id | address   | name                       |
++------------+-----------+----------------------------+
+|          1 | Hyderabad | jeevendhan biofuel Pvt.Ltd |
+|          2 | Pune      | jeevendhan biofuel Pvt.Ltd |
+|          3 | Hyderabad | jeevendhan biofuel Pvt.Ltd |
+|          5 | Pune      | jeevendhan biofuel Pvt.Ltd |
+|          6 | Pune      | jeevendhan biofuel Pvt.Ltd |
++------------+-----------+----------------------------+
+5 rows in set (0.00 sec)
+
+mysql> select *from  company_products;
++--------------------+---------------------+
+| company_company_id | products_product_id |
++--------------------+---------------------+
+|                  1 |                 101 |
+|                  1 |                 104 |
++--------------------+---------------------+
+2 rows in set (0.01 sec)
+
+mysql> show tables;
++--------------------------+
+| Tables_in_projectbiofuel |
++--------------------------+
+| company                  |
+| company_products         |
+| hibernate_sequence       |
+| orders                   |
+| product                  |
+| supplier                 |
++--------------------------+
+6 rows in set (0.07 sec)
+
+mysql> select *from supplier;
++-----------+------------+--------------+----------+---------------+-------------+----------+
+| farmer_id | account_no | contact_info | location | material_type | name        | quantity |
++-----------+------------+--------------+----------+---------------+-------------+----------+
+|         1 | 6033490394 | 8080949935   | Solapur  | Sunflower     | Arti Kabade |        0 |
++-----------+------------+--------------+----------+---------------+-------------+----------+
+1 row in set (0.01 sec)
+
+mysql> select *from supplier;
+Empty set (0.01 sec)
+
+mysql> select *from supplier;
++-----------+------------+--------------+----------+---------------+-------------+----------+--------------------+
+| farmer_id | account_no | contact_info | location | material_type | name        | quantity | company_company_id |
++-----------+------------+--------------+----------+---------------+-------------+----------+--------------------+
+|         1 | 6033490394 | 8080949935   | Solapur  | Sunflower     | Arti Kabade |        0 |               NULL |
++-----------+------------+--------------+----------+---------------+-------------+----------+--------------------+
+1 row in set (0.00 sec)
+
+mysql>
+
+
+mysql> show tables;
++--------------------------+
+| Tables_in_projectbiofuel |
++--------------------------+
+| company                  |
+| company_products         |
+| hibernate_sequence       |
+| orders                   |
+| product                  |
+| supplier                 |
++--------------------------+
+6 rows in set (0.20 sec)
+
+mysql> select *from supplier;
++-----------+------------+--------------+----------+---------------+-------------+----------+--------------------+
+| farmer_id | account_no | contact_info | location | material_type | name        | quantity | company_company_id |
++-----------+------------+--------------+----------+---------------+-------------+----------+--------------------+
+|         1 | 6033490394 | 8080949935   | Solapur  | Sunflower     | Arti Kabade |        0 |               NULL |
++-----------+------------+--------------+----------+---------------+-------------+----------+--------------------+
+1 row in set (0.03 sec)
+
+mysql> select *from supplier;
+Empty set (0.00 sec)
+
+mysql> select *from supplier;
++-----------+---------------+--------------+----------+---------------+----------------+----------+------------+
+| farmer_id | account_no    | contact_info | location | material_type | name           | quantity | company_id |
++-----------+---------------+--------------+----------+---------------+----------------+----------+------------+
+|         1 |   89074536124 | 9435678902   | Latur    | cotton        | Prasad Vibhute |        5 |          2 |
+|         4 | 9098567849352 | 9404045354   | Beed     | Sugarcane     | Arti Kabade    |        6 |          3 |
++-----------+---------------+--------------+----------+---------------+----------------+----------+------------+
+2 rows in set (0.04 sec)
+
+mysql>

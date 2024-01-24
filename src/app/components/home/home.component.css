@@ -1,0 +1,279 @@
+/* Navbar */
+
+a {
+  text-decoration: none;
+}
+
+.navbar {
+  display: flex;
+  /* let's align the items so everything is nice and centered */
+  align-items: center;
+}
+
+/* We want all links in the navbar to be #e7e7e7 */
+.navbar a {
+  color: #e3cece;
+}
+
+.navbar ul {
+ /* Let's reset the margin and padding of the list so it's is flush. */
+  margin: 0;
+  padding: 0;
+  /* Let's remove the bullet points */
+  list-style-type: none;
+  /* display the list flex and align the items centered */
+  display: flex;
+  align-items:center;
+}
+
+.navbar .brand {
+  /*Let's make the anchor display block.
+     This will ensure when we get the full width of the container.
+  */
+  display: block;
+  color: #e7e7e7;
+ /* Remove padding from top/bottom and add 24px padding right/left */
+  padding: 0 24px;
+  font-size: 24px;
+}
+
+.navbar ul li a {
+  color: #e7e7e7;
+  padding: 24px;
+  /*Let's make the anchor display block.
+     This will ensure when we hover, focus, or is active we get the full width and height 
+      of the container.
+  */
+  display: block;
+}
+
+/* When a user hovers, focuses or if the link is active change the background */
+.navbar ul a:hover,
+.navbar ul a:focus,
+.navbar ul .active 
+{
+  background-color: #272727;
+}
+
+
+/* ... (your existing styles) ... */
+
+/* Add these styles for the dropdown */
+.dropdown {
+display: inline-block;
+position: relative;
+}
+
+.dropdown-content {
+display: none;
+position: absolute;
+background-color: #f9f9f9;
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+z-index: 1;
+}
+
+.dropdown-content a {
+color: #333;
+padding: 12px 16px;
+display: block;
+text-decoration: none;
+}
+
+.dropdown-content a:hover {
+background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', 'Arial', sans-serif;
+  }
+  
+  /* HEADINGS */
+  
+  h1, p {
+    color: #a62073;
+    text-align: center;
+    line-height: 1.4;
+  }
+  
+  h1 {
+    font-size: 2.2rem;
+  }
+  
+  h2 {
+    color: #000;
+    font-size: 1.3rem;
+    text-align: center;
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+  
+  /* Navbar */
+
+  a {
+    text-decoration: none;
+  }
+  
+  .navbar {
+    display: flex;
+    /* let's align the items so everything is nice and centered */
+    align-items: center;
+  }
+  
+  /* We want all links in the navbar to be #e7e7e7 */
+  .navbar a {
+    color: #e7e7e7;
+  }
+  
+  .navbar ul {
+   /* Let's reset the margin and padding of the list so it's is flush. */
+    margin: 0;
+    padding: 0;
+    /* Let's remove the bullet points */
+    list-style-type: none;
+    /* display the list flex and align the items centered */
+    display: flex;
+    align-items:center;
+  }
+  
+  .navbar .brand {
+    /*Let's make the anchor display block.
+       This will ensure when we get the full width of the container.
+    */
+    display: block;
+    color: #e7e7e7;
+   /* Remove padding from top/bottom and add 24px padding right/left */
+    padding: 0 24px;
+    font-size: 24px;
+  }
+  
+  .navbar ul li a {
+    color: #e7e7e7;
+    padding: 24px;
+    /*Let's make the anchor display block.
+       This will ensure when we hover, focus, or is active we get the full width and height 
+        of the container.
+    */
+    display: block;
+  }
+  
+  /* When a user hovers, focuses or if the link is active change the background */
+  .navbar ul a:hover,
+  .navbar ul a:focus,
+  .navbar ul .active 
+  {
+    background-color: #272727;
+  }
+
+  /* SECTIONS */
+  
+  .headline {
+    width: 100%;
+    
+    min-height: 150vh;
+    
+    
+    background-image :url('https://www.frost.com/wp-content/uploads/2020/04/61974f87-9303-42a3-8fdb-0c0e3d598e1a-980x653.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .headline h1
+  {
+color: green;
+  }
+  .headline h1:hover{
+    color: red;
+    
+  }
+  
+  .features {
+    width: 100%;
+    height: auto;
+    background-color: #f1f1f1;
+    display: flex;
+    padding: 50px 20px;
+    justify-content: space-around;
+  }
+  
+  .feature-container {
+    flex-basis: 30%;
+    margin-top: 10px;
+  }
+  
+  .feature-container p {
+    color: #000;
+    text-align: center;
+    line-height: 1.4;
+    margin-bottom: 15px;
+  }
+  
+  .feature-container img {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+
+  
+    /* Mobile Devices - Phones/Tablets */
+  
+  @media only screen and (max-width: 720px) { 
+    .features {
+      flex-direction: column;
+      padding: 50px;
+    }
+   
+    
+    /* SECTIONS */
+    
+    .headline {
+      height: 20vh;
+    }
+      
+    .feature-container p {
+      margin-bottom: 25px;
+    }
+    
+    .feature-container {
+      margin-top: 20px;
+    }
+    
+    .feature-container:nth-child(2) {
+      order: -1;
+    }
+    
+    /* SEARCH DISABLED ON MOBILE */
+    
+    #search-icon {
+      display: none;
+    }
+    
+    .search-input {
+    display: none;
+   }
+    
+  }
+
+

@@ -1,0 +1,82 @@
+<header class="navbar navbar-expand-lg">
+    <div class="container">
+        <!-- Logo/Brand -->
+        <a class="navbar-brand" href="">
+            <img src="path_to_your_logo.png" alt="Logo" width="40" height="40" class="mr-2">
+            Raw Material Store
+        </a>
+        <button (click)="supplierHome()" class="btn btn-info" style="margin-left: 10px">Home</button>
+          <button (click)="addRawmaterial()" class="btn btn-info" style="margin-left: 10px">Add RawMaterial</button>
+          <!-- <button (click)="addSupplier()" class="btn btn-info" style="margin-left: 10px">Add Supplier</button> -->
+          <button (click)="supplierList()" class="btn btn-info" style="margin-left: 10px">Supplier List</button>
+          <!-- <button (click)="rawmaterialList()" class="btn btn-info" style="margin-left: 10px">Material List</button> -->
+          <button (click)="companymaterialList()" class="btn btn-info" style="margin-left: 10px">CompanyMaterial List</button>
+        
+
+
+
+        <!-- Right-aligned items -->
+        <div class="ml-auto">
+            <!-- Logout Button -->
+            <button class="btn btn-primary" onclick="logout()">Logout</button>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+<div *ngIf="supplier">
+    <div>
+    <div class="supplier-details">
+        <div class="mb-3">
+            <label class="fw-bold" for="supplierId">Supplier ID:</label>
+            <span>{{ supplier.supplierId }}</span>
+        </div>
+        <div class="mb-3">
+            <label class="fw-bold" for="supplierName">Supplier Name:</label>
+            <span>{{ supplier.supplierName }}</span>
+        </div>
+        <div class="mb-3">
+            <label class="fw-bold" for="email">Email ID:</label>
+            <span>{{ supplier.email }}</span>
+        </div>
+        <div class="mb-3">
+            <label class="fw-bold" for="phoneNo">Phone No.:</label>
+            <span>{{ supplier.phoneNo }}</span>
+        </div>
+    </div>
+
+    <br>
+    
+
+        <div class="panel-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Material-Id</th>
+                        <th>Material-Name</th>
+                        <th>Quantity in Quintal</th>
+                        <th>Rate per Quintal</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr *ngFor="let r of supplier.rawmaterial">
+                        <td>{{r.rawMaterialId}}</td>
+                        <td>{{r.materialName}}</td>
+                        <td>{{supplier.quantity}}</td>
+                        <td>{{r.price}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <button (click)="list()" class="btn btn-primary">Back to Supplier List</button><br>
+
+
+
+

@@ -1,0 +1,64 @@
+<header class="navbar navbar-expand-lg">
+  <div class="container">
+      <!-- Logo/Brand -->
+      <a class="navbar-brand" href="">
+          <img src="path_to_your_logo.png" alt="Logo" width="40" height="40" class="mr-2">
+          Raw Material Store
+      </a>
+      <button (click)="supplierHome()" class="btn btn-info" style="margin-left: 10px">Home</button>
+        <button (click)="addRawmaterial()" class="btn btn-info" style="margin-left: 10px">Add RawMaterial</button>
+        <!-- <button (click)="addSupplier()" class="btn btn-info" style="margin-left: 10px">Add Supplier</button> -->
+        <button (click)="supplierList()" class="btn btn-info" style="margin-left: 10px">Supplier List</button>
+        <!-- <button (click)="rawmaterialList()" class="btn btn-info" style="margin-left: 10px">Material List</button> -->
+        <button (click)="companymaterialList()" class="btn btn-info" style="margin-left: 10px">CompanyMaterial List</button>
+      
+
+
+
+      <!-- Right-aligned items -->
+      <div class="ml-auto">
+          <!-- Logout Button -->
+          <button class="btn btn-primary" onclick="logout()">Logout</button>
+      </div>
+  </div>
+</header>
+
+
+
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>RawMaterial List</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>RawMaterial-Id</th>
+            <th>RawMaterial Name</th>
+            <!-- <th>Quantity in Quintal</th> -->
+            <th>Rate per Quintal</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let r of rawmaterials |  async" >
+            <td>{{r.rawMaterialId}}</td>
+            <td>{{r.materialName}}</td>
+            <!-- <td>{{r.quantity}}</td> -->
+            <td>{{r.price}}</td>
+            
+            <td>
+                <button (click)="updateDetails(r.rawMaterialId)" class="btn btn-info">Edit</button>
+
+                <button (click)="deletePlayer(r.rawMaterialId)"  class="btn btn-danger" style="margin-left: 10px">Delete</button>
+              <!-- <button (click)="playerDetails(p.playerId)" class="btn btn-info" style="margin-left: 10px">Details</button> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+

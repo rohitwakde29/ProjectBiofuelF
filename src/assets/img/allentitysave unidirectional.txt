@@ -1,0 +1,418 @@
+Microsoft Windows [Version 10.0.19045.3324]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\hp>mysql -u root -p
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 766
+Server version: 8.0.34 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++------------------------+
+| Database               |
++------------------------+
+| ak                     |
+| demo                   |
+| image                  |
+| information_schema     |
+| j30group               |
+| jpabasic               |
+| jpacascade             |
+| jpaimage               |
+| jpajoinedinheritance   |
+| jpalifecycle           |
+| jpamanytomany          |
+| jpamanytomany1         |
+| jpaonetomany           |
+| jpaonetoone            |
+| jpaperclassinheritance |
+| jpaprclassinheritance  |
+| jpasingleinheritance   |
+| jpql                   |
+| mantoman               |
+| mysql                  |
+| onetoone               |
+| performance_schema     |
+| practice               |
+| projectadmin           |
+| projectbiofuel         |
+| projectsupplychain     |
+| springcustomerorder    |
+| springj30employee      |
+| springplayermanagement |
+| sys                    |
++------------------------+
+30 rows in set (0.13 sec)
+
+mysql> create database supplychainmanagement;
+Query OK, 1 row affected (0.04 sec)
+
+mysql> use supplychainmanagement;
+Database changed
+mysql> show tables;
++---------------------------------+
+| Tables_in_supplychainmanagement |
++---------------------------------+
+| company                         |
++---------------------------------+
+1 row in set (0.06 sec)
+
+mysql> select *from company;
+Empty set (0.01 sec)
+
+mysql> drop table company;
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> select *from company;
++------------+---------+-----------------+
+| company_id | address | name            |
++------------+---------+-----------------+
+|          1 | Pune    | Biofuel Pvt.Ltd |
+|          2 | Pune    | Biofuel Pvt.Ltd |
++------------+---------+-----------------+
+2 rows in set (0.01 sec)
+
+mysql> drop table company;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> show tables;
++---------------------------------+
+| Tables_in_supplychainmanagement |
++---------------------------------+
+| company                         |
+| hibernate_sequence              |
+| product                         |
+| supplier                        |
+| warehouse                       |
++---------------------------------+
+5 rows in set (0.16 sec)
+
+mysql> select *from comapny;
+ERROR 1146 (42S02): Table 'supplychainmanagement.comapny' doesn't exist
+mysql> select *from company;
+Empty set (0.01 sec)
+
+mysql> select *from company;
++------------+---------+-----------------+--------------+
+| company_id | address | name            | warehouse_id |
++------------+---------+-----------------+--------------+
+|          1 | Pune    | Biofuel Pvt.Ltd |            1 |
++------------+---------+-----------------+--------------+
+1 row in set (0.00 sec)
+
+mysql> select *from warehouse;
++--------------+---------+------------------+
+| warehouse_id | address | storage_capacity |
++--------------+---------+------------------+
+|            1 | Pune    |             1000 |
++--------------+---------+------------------+
+1 row in set (0.06 sec)
+
+mysql> show tables;
++---------------------------------+
+| Tables_in_supplychainmanagement |
++---------------------------------+
+| company                         |
+| company_suppliers               |
+| hibernate_sequence              |
+| product                         |
+| supplier                        |
+| warehouse                       |
++---------------------------------+
+6 rows in set (0.07 sec)
+
+mysql> select *from comapny;
+ERROR 1146 (42S02): Table 'supplychainmanagement.comapny' doesn't exist
+mysql> select *from company;
++------------+---------+------------------+--------------+
+| company_id | address | name             | warehouse_id |
++------------+---------+------------------+--------------+
+|          1 | Pune    | Biofuel Pvt .Ltd |            1 |
++------------+---------+------------------+--------------+
+1 row in set (0.04 sec)
+
+mysql> select *from warehouse;
++--------------+---------+------------------+
+| warehouse_id | address | storage_capacity |
++--------------+---------+------------------+
+|            1 | Pune    |             2000 |
++--------------+---------+------------------+
+1 row in set (0.02 sec)
+
+mysql> select *from supplier;
++-----------+-------------+--------------+----------+---------------+--------------+----------+
+| farmer_id | account_no  | contact_info | location | material_type | name         | quantity |
++-----------+-------------+--------------+----------+---------------+--------------+----------+
+|         1 | 89046738902 | 8080959946   | Latur    | SugarCane     | Arti Kabade  |        5 |
+|         2 | 89045637290 | 8950453689   | Solapur  | Cotton        | Mahesh Patil |        3 |
++-----------+-------------+--------------+----------+---------------+--------------+----------+
+2 rows in set (0.02 sec)
+
+mysql> select *from product;
+Empty set (0.01 sec)
+
+mysql> select *from  company_suppliers;
++--------------------+---------------------+
+| company_company_id | suppliers_farmer_id |
++--------------------+---------------------+
+|                  1 |                   1 |
+|                  1 |                   2 |
++--------------------+---------------------+
+2 rows in set (0.01 sec)
+
+mysql> select *from product;
++------------+-------------+-------+---------+
+| product_id | description | price | company |
++------------+-------------+-------+---------+
+|        101 | BioEthanol  |   900 |       1 |
+|        102 | Biodiesel   |  3000 |       1 |
+|        103 | Glycerin    |  5000 |       1 |
++------------+-------------+-------+---------+
+3 rows in set (0.02 sec)
+
+mysql> select *from supplier;
++-----------+-------------+--------------+----------+---------------+--------------+----------+------------+
+| farmer_id | account_no  | contact_info | location | material_type | name         | quantity | company_id |
++-----------+-------------+--------------+----------+---------------+--------------+----------+------------+
+|         1 | 89046738902 | 8080959946   | Latur    | SugarCane     | Arti Kabade  |        5 |          1 |
+|         2 | 89045637290 | 8950453689   | Solapur  | Cotton        | Mahesh Patil |        3 |          1 |
++-----------+-------------+--------------+----------+---------------+--------------+----------+------------+
+2 rows in set (0.01 sec)
+
+mysql> select *from  company_suppliers;
+Empty set (0.00 sec)
+
+mysql> select *from  company_suppliers;
++--------------------+---------------------+
+| company_company_id | suppliers_farmer_id |
++--------------------+---------------------+
+|                  1 |                   1 |
+|                  1 |                   2 |
++--------------------+---------------------+
+2 rows in set (0.00 sec)
+
+mysql> select *from product;
++------------+-------------+-------+---------+
+| product_id | description | price | company |
++------------+-------------+-------+---------+
+|        101 | BioEthanol  |   900 |       1 |
+|        102 | Biodiesel   |  3000 |       1 |
+|        103 | Glycerin    |  5000 |       1 |
++------------+-------------+-------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select *from company;
++------------+---------+------------------+--------------+
+| company_id | address | name             | warehouse_id |
++------------+---------+------------------+--------------+
+|          1 | Pune    | Biofuel Pvt .Ltd |            1 |
++------------+---------+------------------+--------------+
+1 row in set (0.00 sec)
+
+mysql> select *from warehouse;
++--------------+---------+------------------+
+| warehouse_id | address | storage_capacity |
++--------------+---------+------------------+
+|            1 | Pune    |             2000 |
++--------------+---------+------------------+
+1 row in set (0.00 sec)
+
+mysql> show tables;
++---------------------------------+
+| Tables_in_supplychainmanagement |
++---------------------------------+
+| company                         |
+| company_products                |
+| company_suppliers               |
+| hibernate_sequence              |
+| product                         |
+| supplier                        |
+| warehouse                       |
++---------------------------------+
+7 rows in set (0.01 sec)
+
+mysql> show tables;
++---------------------------------+
+| Tables_in_supplychainmanagement |
++---------------------------------+
+| company                         |
+| company_distributors            |
+| company_products                |
+| company_suppliers               |
+| distributor                     |
+| distributor_orders              |
+| hibernate_sequence              |
+| orders                          |
+| product                         |
+| supplier                        |
+| warehouse                       |
++---------------------------------+
+11 rows in set (0.07 sec)
+
+mysql> select *from comapny;
+ERROR 1146 (42S02): Table 'supplychainmanagement.comapny' doesn't exist
+mysql> select *from company;
++------------+---------+------------------+--------------+
+| company_id | address | name             | warehouse_id |
++------------+---------+------------------+--------------+
+|          1 | Pune    | Biofuel Pvt .Ltd |            1 |
++------------+---------+------------------+--------------+
+1 row in set (0.01 sec)
+
+mysql> select *from company_distributors;
++--------------------+-----------------------------+
+| company_company_id | distributors_distributor_id |
++--------------------+-----------------------------+
+|                  1 |                         101 |
+|                  1 |                         102 |
++--------------------+-----------------------------+
+2 rows in set (0.02 sec)
+
+mysql> select *from company_products;
+Empty set (0.00 sec)
+
+mysql> select *from distributor;
++----------------+--------------+---------------------+----------------+
+| distributor_id | contact_info | distribution_region | name           |
++----------------+--------------+---------------------+----------------+
+|            101 | 9056789435   | Mumbai              | Rahul Yadav    |
+|            102 | 8421171506   | Hyderabad           | Prasad Bhosale |
++----------------+--------------+---------------------+----------------+
+2 rows in set (0.04 sec)
+
+mysql> select *from distributor_orders;
++----------------------------+-----------------+
+| distributor_distributor_id | orders_order_id |
++----------------------------+-----------------+
+|                        101 |            1001 |
+|                        102 |            1002 |
++----------------------------+-----------------+
+2 rows in set (0.01 sec)
+
+mysql> select *from product;
++------------+-------------+-------+---------+
+| product_id | description | price | company |
++------------+-------------+-------+---------+
+|        101 | BioEthanol  |   900 |       1 |
+|        102 | Biodiesel   |  3000 |       1 |
+|        103 | Glycerin    |  5000 |       1 |
++------------+-------------+-------+---------+
+3 rows in set (0.01 sec)
+
+mysql> show tables;
++---------------------------------+
+| Tables_in_supplychainmanagement |
++---------------------------------+
+| company                         |
+| company_distributors            |
+| company_products                |
+| company_suppliers               |
+| distributor                     |
+| distributor_orders              |
+| hibernate_sequence              |
+| orders                          |
+| product                         |
+| supplier                        |
+| warehouse                       |
++---------------------------------+
+11 rows in set (0.01 sec)
+
+mysql> select *from company;
++------------+---------+------------------+--------------+
+| company_id | address | name             | warehouse_id |
++------------+---------+------------------+--------------+
+|          1 | Pune    | Biofuel Pvt .Ltd |            1 |
++------------+---------+------------------+--------------+
+1 row in set (0.01 sec)
+
+mysql> select *from company_distributors;
++--------------------+-----------------------------+
+| company_company_id | distributors_distributor_id |
++--------------------+-----------------------------+
+|                  1 |                         101 |
+|                  1 |                         102 |
++--------------------+-----------------------------+
+2 rows in set (0.01 sec)
+
+mysql> select *from company_products;
++--------------------+---------------------+
+| company_company_id | products_product_id |
++--------------------+---------------------+
+|                  1 |                 101 |
+|                  1 |                 102 |
+|                  1 |                 103 |
++--------------------+---------------------+
+3 rows in set (0.01 sec)
+
+mysql> select *from distributor;
++----------------+--------------+---------------------+----------------+
+| distributor_id | contact_info | distribution_region | name           |
++----------------+--------------+---------------------+----------------+
+|            101 | 9056789435   | Mumbai              | Rahul Yadav    |
+|            102 | 8421171506   | Hyderabad           | Prasad Bhosale |
++----------------+--------------+---------------------+----------------+
+2 rows in set (0.00 sec)
+
+mysql> select *from company_suppliers;
++--------------------+---------------------+
+| company_company_id | suppliers_farmer_id |
++--------------------+---------------------+
+|                  1 |                   1 |
+|                  1 |                   2 |
++--------------------+---------------------+
+2 rows in set (0.00 sec)
+
+mysql> select *from distributor_orders;
++----------------------------+-----------------+
+| distributor_distributor_id | orders_order_id |
++----------------------------+-----------------+
+|                        101 |            1001 |
+|                        102 |            1002 |
++----------------------------+-----------------+
+2 rows in set (0.00 sec)
+
+mysql> select *from orders;
++----------+------------+------------------+
+| order_id | date       | distributor_name |
++----------+------------+------------------+
+|     1001 | 2023-12-06 | Rahul Yadav      |
+|     1002 | 2023-12-07 | Prasad Bhosale   |
++----------+------------+------------------+
+2 rows in set (0.01 sec)
+
+mysql> select *from product;
++------------+-------------+-------+
+| product_id | description | price |
++------------+-------------+-------+
+|        101 | BioEthanol  |   900 |
+|        102 | Biodiesel   |  3000 |
+|        103 | Glycerin    |  5000 |
++------------+-------------+-------+
+3 rows in set (0.01 sec)
+
+mysql> select *from supplier;
++-----------+-------------+--------------+----------+---------------+--------------+----------+
+| farmer_id | account_no  | contact_info | location | material_type | name         | quantity |
++-----------+-------------+--------------+----------+---------------+--------------+----------+
+|         1 | 89046738902 | 8080959946   | Latur    | SugarCane     | Arti Kabade  |        5 |
+|         2 | 89045637290 | 8950453689   | Solapur  | Cotton        | Mahesh Patil |        3 |
++-----------+-------------+--------------+----------+---------------+--------------+----------+
+2 rows in set (0.01 sec)
+
+mysql> select *from warehouse;
++--------------+---------+------------------+
+| warehouse_id | address | storage_capacity |
++--------------+---------+------------------+
+|            1 | Pune    |             2000 |
++--------------+---------+------------------+
+1 row in set (0.01 sec)
+
+mysql>

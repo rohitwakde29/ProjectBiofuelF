@@ -1,0 +1,58 @@
+<header class="navbar navbar-expand-lg">
+    <div class="container">
+        <!-- Logo/Brand -->
+        <a class="navbar-brand" href="">
+            <img src="path_to_your_logo.png" alt="Logo" width="40" height="40" class="mr-2">
+            Raw Material Store
+        </a>
+        <button (click)="supplierHome()" class="btn btn-info" style="margin-left: 10px">Home</button>
+          <button (click)="addRawmaterial()" class="btn btn-info" style="margin-left: 10px">Add RawMaterial</button>
+          <!-- <button (click)="addSupplier()" class="btn btn-info" style="margin-left: 10px">Add Supplier</button> -->
+          <button (click)="supplierList()" class="btn btn-info" style="margin-left: 10px">Supplier List</button>
+          <!-- <button (click)="rawmaterialList()" class="btn btn-info" style="margin-left: 10px">Material List</button> -->
+          <button (click)="companymaterialList()" class="btn btn-info" style="margin-left: 10px">CompanyMaterial List</button>
+        
+
+
+
+        <!-- Right-aligned items -->
+        <div class="ml-auto">
+            <!-- Logout Button -->
+            <button (click)="home()" class="btn btn-info" style="margin-left: 10px">Logout</button>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+<div class="card custom-card">
+    <div class="card-header custom-card-header">
+        <h2 class="text-black">Welcome to Our Raw Material Store!</h2>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4 mb-3" *ngFor="let r of rawmaterials | async">
+                <div class="card custom-inner-card">
+                    <div class="card-body">
+                        <h3 class="card-title  text-center">RawMaterial-Id: {{ r.rawMaterialId }}</h3>
+                        <br>
+                        <div class="mb-3">
+                            <label class="fw-bold" for="materialName">RawMaterial Name: </label>
+                            <span class="mb-1"> {{ r.materialName }}</span>
+                        </div>
+                        <div class="mb-3">
+                            <label class="fw-bold" for="price">Rate Per Quintal: </label>
+                            <span class="mb-1"> {{ r.price }}</span>
+                        </div>
+                        <div class="text-center">
+                            <button (click)="addSupplier()" class="btn btn-info mx-auto" style="margin-left: 10px">Sell Material</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

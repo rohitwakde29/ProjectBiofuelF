@@ -1,0 +1,144 @@
+
+mysql> use supplychainmanagement;
+Database changed
+mysql> show tables;
++---------------------------------+
+| Tables_in_supplychainmanagement |
++---------------------------------+
+| admin                           |
+| company                         |
+| company_distributors            |
+| company_products                |
+| company_suppliers               |
+| distributor                     |
+| distributor_orders              |
+| hibernate_sequence              |
+| orders                          |
+| product                         |
+| raw_material                    |
+| supplier                        |
+| supplier_rawmaterial            |
+| warehouse                       |
++---------------------------------+
+14 rows in set (0.08 sec)
+
+mysql> select *from admin;
++----------+------------+-------------+-----------------+-------------+--------------------+
+| admin_id | contact    | name        | password        | username    | company_company_id |
++----------+------------+-------------+-----------------+-------------+--------------------+
+|        1 | 9805784932 | Arti Kabade | secretepassword | arti_kabade |                  1 |
++----------+------------+-------------+-----------------+-------------+--------------------+
+1 row in set (0.03 sec)
+
+mysql> select *from company;
++------------+---------+-------------------+-----------------+--------------+
+| company_id | address | email             | name            | warehouse_id |
++------------+---------+-------------------+-----------------+--------------+
+|          1 | Pune    | biofuel@gmail.com | Biofuel Pvt.Ltd |            1 |
++------------+---------+-------------------+-----------------+--------------+
+1 row in set (0.03 sec)
+
+mysql> select *from company_distributors;
++--------------------+-----------------------------+
+| company_company_id | distributors_distributor_id |
++--------------------+-----------------------------+
+|                  1 |                           1 |
+|                  1 |                           2 |
++--------------------+-----------------------------+
+2 rows in set (0.00 sec)
+
+mysql> select *from company_products;
++--------------------+---------------------+
+| company_company_id | products_product_id |
++--------------------+---------------------+
+|                  1 |                 101 |
+|                  1 |                 102 |
++--------------------+---------------------+
+2 rows in set (0.00 sec)
+
+mysql> select *from company_suppliers;
++--------------------+-----------------------+
+| company_company_id | suppliers_supplier_id |
++--------------------+-----------------------+
+|                  1 |                     1 |
+|                  1 |                     2 |
++--------------------+-----------------------+
+2 rows in set (0.00 sec)
+
+mysql> select *from distributor;
++----------------+--------------+---------------------+----------------+
+| distributor_id | contact_info | distribution_region | name           |
++----------------+--------------+---------------------+----------------+
+|              1 | 9056789435   | Mumbai              | Rahul Yadav    |
+|              2 | 8421171506   | Hyderabad           | Prasad Bhosale |
++----------------+--------------+---------------------+----------------+
+2 rows in set (0.03 sec)
+
+mysql> select *from distributor_orders'
+    '> ;
+    '> ^C
+mysql> select *from distributor_orders;
++----------------------------+-----------------+
+| distributor_distributor_id | orders_order_id |
++----------------------------+-----------------+
+|                          1 |            1001 |
+|                          2 |            1002 |
++----------------------------+-----------------+
+2 rows in set (0.00 sec)
+
+mysql> select *from orders;
++----------+------------+------------------+
+| order_id | date       | distributor_name |
++----------+------------+------------------+
+|     1001 | 2023-12-06 | Rahul Yadav      |
+|     1002 | 2023-12-07 | Prasad Bhosale   |
++----------+------------+------------------+
+2 rows in set (0.04 sec)
+
+mysql> select *from product;
++------------+-------------+-------+
+| product_id | description | price |
++------------+-------------+-------+
+|        101 | BioEthanol  |   900 |
+|        102 | BioDiesel   |  2000 |
++------------+-------------+-------+
+2 rows in set (0.01 sec)
+
+mysql> select *from raw_material;
++-----------------+---------------+-------+----------+
+| raw_material_id | material_name | price | quantity |
++-----------------+---------------+-------+----------+
+|            1001 | Cotton        |  1000 |       10 |
+|            1002 | Soyabean      | 10000 |       15 |
+|            1003 | SugarCane     | 20150 |       15 |
+|            1004 | Soyabean      | 50000 |       20 |
++-----------------+---------------+-------+----------+
+4 rows in set (0.03 sec)
+
+mysql> select *from supplier;
++-------------+------------------+------------+---------------+
+| supplier_id | email            | phone_no   | supplier_name |
++-------------+------------------+------------+---------------+
+|           1 | mohan@gmail.com  | 9546789546 | Mohan Shinde  |
+|           2 | pandit@gmail.com | 9623757708 | Pandit Kabade |
++-------------+------------------+------------+---------------+
+2 rows in set (0.05 sec)
+
+mysql> select *from supplier_rawmaterial;
++----------------------+-----------------------------+
+| supplier_supplier_id | rawmaterial_raw_material_id |
++----------------------+-----------------------------+
+|                    1 |                        1001 |
+|                    1 |                        1002 |
+|                    2 |                        1003 |
+|                    2 |                        1004 |
++----------------------+-----------------------------+
+4 rows in set (0.00 sec)
+
+mysql> select *from warehouse;
++--------------+---------+------------------+
+| warehouse_id | address | storage_capacity |
++--------------+---------+------------------+
+|            1 | Pune    |             2000 |
++--------------+---------+------------------+
+1 row in set (0.01 sec)

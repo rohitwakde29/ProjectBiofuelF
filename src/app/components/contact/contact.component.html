@@ -1,0 +1,105 @@
+<div>
+  <nav class="navbar" style="background-color: rgb(73, 0, 128);">
+    <a class="brand" routerLink="/home">Supply Chain for Biofuels
+      <!-- <img src="path_to_your_logo.png" alt="Logo" /> -->
+    </a>
+    <ul>
+      <li><a routerLink="">Home</a></li>
+      <li><a routerLink="/about">About</a></li>
+      <li><a routerLink="/contact">Contact Us</a></li>
+      <li><a routerLink="/service">Our Services</a></li>
+      <li><a routerLink="/feedback">Feedback</a></li>
+
+      <!-- Add the login dropdown -->
+      <li class="dropdown" id="loginDropdown">
+        <a href="javascript:void(0)" class="dropbtn" routerLink="">Feature</a>
+        <div class="dropdown-content">
+          <a routerLink="/raw">Supplier</a>
+          <a routerLink="/product">Distributor</a>
+          <!-- Add more login options as needed -->
+        </div>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<script>
+  // Use "mouseover" and "mouseout" events on the parent li to handle dropdown visibility
+  document.getElementById("loginDropdown").addEventListener("mouseover", function() {
+    this.querySelector(".dropdown-content").classList.add("active");
+  });
+
+  document.getElementById("loginDropdown").addEventListener("mouseout", function() {
+    this.querySelector(".dropdown-content").classList.remove("active");
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="row justify-content-center" data-aos="fade-up">
+      <div class="col-lg-10">
+        <!-- Info Section -->
+        <!-- Info Section -->
+        <div class="info-wrap">
+          <div class="info">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <h4>Location:</h4>
+            <p>Shop no 89 <br>sec-65 plot -9, deshmukh,<br> Ghansoli, navi Mumbai 410209</p>
+          </div>
+
+          <div class="info">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <h4>Email:</h4>
+            <!-- Use mailto attribute for clickable email links -->
+            <p><a href="mailto:supplychainbiofuel&#64;gmail.com">supplychainbiofuel&#64;gmail.com</a><br><a
+                href="mailto:contact&#64;gmail.com">contact&#64;gmail.com</a></p>
+          </div>
+
+          <div class="info">
+            <i class="fa fa-phone-square" aria-hidden="true"></i>
+            <h4>Call:</h4>
+            <p>+91 89444 XXXXX<br>+91 93664 XXXXX</p>
+          </div>
+        </div>
+
+
+        <!-- Form Section -->
+        <div class="row mt-5 justify-content-center" data-aos="fade-up">
+          <div class="col-lg-10">
+            <form action="#" method="post" role="form" class="form">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+              </div>
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

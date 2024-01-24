@@ -1,0 +1,55 @@
+
+
+
+
+
+<div class="container mt-5">
+  
+    <div class="card p-4" style="width: 400px; margin: 0 auto;">
+  
+      <h2 class="mb-4 text-center">Supplier Form</h2>
+  
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="name">Supplier Name</label>
+          <input type="text" class="form-control" id="name" required [(ngModel)]="supp.supplierName" name="name">
+        </div>
+  
+        <div class="form-group">
+          <label for="email">Supplier Email Id</label>
+          <input type="text" class="form-control" id="email" required [(ngModel)]="supp.email" name="email">
+        </div>
+  
+        <div class="form-group">
+          <label for="contact">Supplier Contact Number</label>
+          <input type="text" class="form-control" id="contact" required [(ngModel)]="supp.phoneNo" name="contact">
+        </div>
+  
+        <div class="form-group">
+            <label for="pro">Choose a Product:</label>
+            <select name="pro" id="pro" class="form-control" [(ngModel)]="supp.rawmaterial[0].rawMaterialId" required>
+              <option value="" disabled selected>Select a Product:</option>
+              <option *ngFor="let r of rawmaterial | async" value="{{r.rawMaterialId}}">{{r.materialName}}</option>
+            </select>
+          </div>
+  
+        <div class="form-group">
+          <label for="quantity">RawMaterial Quantity</label>
+          <input type="text" placeholder="Enter Quantity in Quintal" class="form-control" id="quantity" required [(ngModel)]="supp.quantity" name="quantity">
+        </div>
+  
+        <button type="submit" class="btn btn-success btn-block">Submit</button>
+      </form>
+    </div>
+  
+    
+  </div>
+
+  <div class="text-right mt-3">
+    <button (click)="RawMaterial()" class="btn btn-primary" style="margin-right:60px">Back to Material List</button>
+  </div>
+
+  <div>
+    <p> </p>
+  </div>
+  

@@ -1,0 +1,77 @@
+<div class="hero_area">
+    <div class="container">
+      <h2>Distributor Login</h2>
+      <form #loginForm="ngForm" (ngSubmit)="loginDistributorUser()">
+        {{ loginForm.form.valid }}
+        <small class="text-danger">{{ msg }}</small>
+        <div class="form-group">
+          <label for="email">Distributor Email:</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="Distributor@gmail.com"
+            name="email"
+            [(ngModel)]="distributoruser.distemailid"
+            required
+            pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+            #email="ngModel"
+            [class.is-invalid]="email.invalid && email.touched"
+          />
+          <!-- <small class="text-danger" [class.d-none]="email.valid || email.untouched"
+          >EmailId is an required field</small
+        > -->
+  
+          <div *ngIf="email.errors && email.invalid && email.touched">
+            <small class="text-danger" *ngIf="email.errors?.['required']"
+              >EmailId is required field</small
+            >
+            <small class="text-danger" *ngIf="email.errors?.['pattern']"
+              >Enter Valid EmailId</small
+            >
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pwd">Password:</label>
+          <div class="input-group">
+          <input
+            type="{{ showPassword ? 'text' : 'password' }}"
+            class="form-control"
+            id="pwd"
+            placeholder="Enter password"
+            name="pwd"
+            
+            [(ngModel)]="distributoruser.distpassword"
+            required
+            #password="ngModel"
+            [class.is-invalid]="password.invalid && password.touched"
+          />
+          <div class="input-group-append" >
+            <span class="input-group-text" style="margin-top: -16px">
+              <input  type="checkbox" (change)="togglePasswordVisibility()"/>
+              <label class="show-password-label" for="checkbox">Show Password</label>
+            </span>
+          </div>
+          </div>
+          <small
+            class="text-danger"
+            [class.d-none]="password.valid || password.untouched"
+            >Password is an required field</small
+          >
+        </div>
+  
+        <div class="checkbox">
+          <label><input type="checkbox" name="remember" /> Remember me</label>
+        </div>
+        <button
+          [disabled]="loginForm.form.invalid"
+          type="submit"
+          class="btn btn-info"
+        >
+          Login
+        </button>
+      </form>
+      <small (click)="gotodistributorregistration()">New User? Register Here</small>
+    </div>
+  </div>
+  

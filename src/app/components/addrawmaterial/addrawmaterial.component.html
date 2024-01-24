@@ -1,0 +1,53 @@
+<!-- <header class="navbar navbar-expand-lg">
+  <div class="container"> -->
+      <!-- Logo/Brand -->
+      <!-- <a class="navbar-brand" href="">
+          <img src="path_to_your_logo.png" alt="Logo" width="40" height="40" class="mr-2">
+          Raw Material Store
+      </a>
+      <button (click)="supplierHome()" class="btn btn-info" style="margin-left: 10px">Home</button>
+        <button (click)="addRawmaterial()" class="btn btn-info" style="margin-left: 10px">Add RawMaterial</button> -->
+        <!-- <button (click)="addSupplier()" class="btn btn-info" style="margin-left: 10px">Add Supplier</button> -->
+        <!-- <button (click)="supplierList()" class="btn btn-info" style="margin-left: 10px">Supplier List</button> -->
+        <!-- <button (click)="rawmaterialList()" class="btn btn-info" style="margin-left: 10px">Material List</button> -->
+        <!-- <button (click)="companymaterialList()" class="btn btn-info" style="margin-left: 10px">CompanyMaterial List</button> -->
+      
+
+
+
+      <!-- Right-aligned items -->
+      <!-- <div class="ml-auto"> -->
+          <!-- Logout Button -->
+          <!-- <button class="btn btn-primary" onclick="logout()">Logout</button>
+      </div>
+  </div>
+</header> -->
+
+
+
+
+<div class="container mt-5">
+  <div class="card p-4" style="width: 400px; margin: 0 auto;">
+
+    <h2 class="mb-4 text-center">RawMaterial Form</h2>
+
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">RawMaterial Name</label>
+        <input type="text" class="form-control" id="name" required [(ngModel)]="rawmaterial.materialName" name="name">
+      </div>
+
+      <div class="form-group">
+        <label for="price">RawMaterial Price</label>
+        <input type="text" class="form-control" id="price" required [(ngModel)]="rawmaterial.price" name="price">
+      </div>
+
+      <button type="submit" class="btn btn-success btn-block">Submit</button>
+    </form>
+  </div>
+
+</div>
+
+<div class="text-right mt-3">
+  <button (click)="Material()" class="btn btn-primary" style="margin-right:80px">Go to Material List</button>
+</div>
